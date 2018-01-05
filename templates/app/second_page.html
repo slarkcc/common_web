@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+< lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>second</title>
+</head>
+
+
+<html>
+<body>
+<h1> 我的web页面</h1>
+<p id="myPar">我是一个段落。</p>
+<div id="myDiv"> 我是一个div</div>
+<p>
+    <button type="button" onclick="myFunction()"> 点击这里</button>
+</p>
+
+<script>
+    function myFunction() {
+        document.getElementById("myPar").innerHTML = "你好世界 ！";
+        document.getElementById("myDiv").innerHTML = "你最近怎么样了？";
+    }
+</script>
+
+<p>当您点击按钮时，两个元素会发生变化</p>
+</body>
+</html>
