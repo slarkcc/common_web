@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>如果时间遭遇20：00，问候"good day"</p>
+<button onclick="myFunction()">点击这里</button>
+<p id="demo"></p>
+<script>
+    function myFunction() {
+        var x = "";
+        var time = new Date().getHours();
+        if (time < 20) {
+            x = "Good day";
+        }
+        document.getElementById("demo").innerHTML = x;
+    }
+</script>
+</body>
+</html>
