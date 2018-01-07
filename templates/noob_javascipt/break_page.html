@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>break_page</title>
+</head>
+<body>
+<p>点击按钮，测试break语句的循环</p>
+<p id="demo"></p>
+<button onclick="myFunction()">点我</button>
+<script>
+    function myFunction() {
+        var x = "";
+        for (var i = 0; i < 10; i++) {
+            if (i == 3) {
+                //break;
+                continue;
+            }
+            x = x + "该数字为" + i + "<br>";
+            document.getElementById("demo").innerHTML = x
+        }
+        //document.getElementById("demo").innerHTML = x
+    }
+</script>
+</body>
+</html>

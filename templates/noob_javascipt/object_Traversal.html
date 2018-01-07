@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traversal_object</title>
+</head>
+<body>
+<p>点击按钮遍历对象</p>
+<button onclick="myFunction()">点击我</button>
+<p id="demo"></p>
+
+<script>
+    function myFunction() {
+        var x;
+        var text="";
+        var person={fname:"bill", lname:"gates", age:56};
+        for (x in person){
+            text=text+person[x];
+            document.getElementById("demo").innerHTML=text;
+        }
+    }
+</script>
+</body>
+</html>
