@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>count_with_stop</title>
+</head>
+<body>
+<form>
+    <input type="button" value="开始计数" onclick="doTimer()"/>
+    <input type="text" id="txt"/>
+    <input type="button" value="停止计数" onclick="stopCount()"/>
+</form>
+
+<script>
+    var c = 0;
+    var t;
+    var time_is_on = 0;
+
+    function timedCount() {
+        document.getElementById('txt').value = c;
+        c = c + 1;
+        t = setTimeout(function () {
+            timedCount()
+        }, 1000);
+    }
+
+    function doTimer() {
+        if (!time_is_on) {
+            time_is_on = 1;
+            timedCount();
+        }
+    }
+
+    function stopCount() {
+        clearTimeout(t);
+        time_is_on = 0;
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>count</title>
+</head>
+<body>
+<form>
+    <input type="button" value="开始计数!" onClick="doTimer()">
+    <input type="text" id="txt">
+</form>
+<p>单击按钮，输入框将从0开始一直计数。</p>
+<script>
+    var c = 0;
+    var t;
+    var time_is_on = 0;
+
+    function timedCount() {
+        document.getElementById('txt').value = c;
+        c = c + 1;
+        t = setTimeout("timedCount()", 1000);
+    }
+
+    function doTimer() {
+        if (!time_is_on) {
+            time_is_on = 1;
+            timedCount();
+        }
+    }
+</script>
+</body>
+</html>
