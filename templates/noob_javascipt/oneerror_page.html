@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oneerror</title>
+</head>
+<body>
+<button onclick="adfefwef()">点我</button>
+<script>
+    onerror = errHander;
+    var txt = "";
+
+    function errHander(msg, url, l) {
+        txt = "错误\n";
+        txt += "错位" + msg + "\n";
+        txt += "URL:" + url + "\n\n";
+        txt += "行:" + l + "\n\n";
+        alert(txt);
+        return true;
+    }
+</script>
+</body>
+</html>
