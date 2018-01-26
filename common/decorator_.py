@@ -17,6 +17,5 @@ def decorator(func):
                 raise TypeError("{0} only accept integers as arguments ".format(func.__name__))
 
         return func(*args, **kwargs)
+
     return inner
-
-
