@@ -7,6 +7,11 @@ import time
 
 
 def fibonacci(num):
+    """
+    生成器实现的fib
+    :param num:
+    :return:
+    """
     result = list()
     for i in range(num):
         if i < 2:
@@ -15,6 +20,37 @@ def fibonacci(num):
             result.append(sum(result))
             result.pop(0)
         yield result[-1]
+
+
+def fib(n):
+    """
+    简单的fib
+    :param n:
+    :return:
+    """
+    result = [0] * n
+    a, b = 0, 1
+    index = 0
+    while index < n:
+        result[index] = b
+        a, b = b, a + b
+        index += 1
+    return result
+
+
+def fib1(n):
+    """
+    生成器实现的fib
+    :param n:
+    :return:
+    """
+    result = [0] * n
+    a, b = 0, 1
+    index = 0
+    while index < n:
+        yield b
+        a, b = b, a + b
+        index += 1
 
 
 def squares(cur=1, num=100):
