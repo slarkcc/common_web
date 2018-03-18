@@ -44,3 +44,71 @@ portfolio = [
 ]
 cheap = heapq.nsmallest(3, portfolio, key=lambda s: s['price'])
 expensive = heapq.nlargest(3, portfolio, key=lambda s: s['price'])
+
+
+def bin_search(data_list, val):
+    low = 0
+    high = len(data_list) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        if data_list[mid] == val:
+            return mid
+        elif data_list[mid] > val:
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return "Not exist !!"
+
+
+import functools
+
+
+# 装饰器实现
+def singleton(cls):
+    instance = {}
+
+    @functools.wraps(cls)
+    def getinstance(*args, **kwargs):
+        if cls not in instance:
+            instance[cls] = cls(*args, **kwargs)
+        return instance[cls]
+
+    return getinstance
+
+
+# 使用元类
+class Singleton(type):
+    _instance = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instance:
+            cls._instance[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instance[cls]
+
+
+# 使用__new__
+class Singleton(object):
+    _instance = None
+
+    def __new__(cls, *args, **kwargs):
+        if not cls._instance:
+            cls._instance = super(Singleton, cls).__new__(cls, *args, **kwargs)
+        return cls._instance
+
+
+def singleton(cls):
+    instance = {}
+
+    @functools.wraps(cls)
+    def inner(*args, **kwargs):
+        if cls not in instance:
+            instance[cls] = cls(*args, **kwargs)
+        return instance[cls]
+
+    return inner
+
+
+
+
