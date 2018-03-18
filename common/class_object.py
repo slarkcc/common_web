@@ -1108,3 +1108,39 @@ class Evaluator(NodeVisitor):
 
     def visit_Sub(self, node):
         return self.visit(node)
+
+
+# 创建缓存实例
+class Spam:
+    def __init__(self, name):
+        self.name = name
+
+
+import weakref
+
+_spam_cache = weakref.WeakValueDictionary()
+
+
+def get_spam(name):
+    if name not in _spam_cache:
+        s = Spam(name)
+        _spam_cache[name] = s
+    else:
+        s = _spam_cache[name]
+    return s
+
+
+class Spam(object):
+    _spam_cache = weakref.WeakKeyDictionary()
+
+    def __new__(cls, name):
+        if name in cls._spam_cache:
+            return cls._spam_cache[name]
+        else:
+            self = super(Spam, cls).__new__(cls)
+            cls._spam_cache[name] = self
+            return self
+
+    def __init__(self, name):
+        print("initializing spam")
+        self.name = name
