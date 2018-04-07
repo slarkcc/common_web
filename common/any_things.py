@@ -110,5 +110,30 @@ def singleton(cls):
     return inner
 
 
+# 冒泡排序算法
+def bubble_sort(nums):
+    for i in range(len(nums) - 1):
+        for j in range(len(nums) - i - 1):
+            if nums[j] > nums[j + 1]:
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]
+    return nums
+
+
+# 二分查找算法
+def binary_search(li, val):
+    low = 0
+    high = len(li) - 1
+
+    while low < high:
+        mid = (low + high) // 2
+        if val == li[mid]:
+            return mid
+        elif val < li[mid]:
+            high = mid - 1
+        else:
+            low = mid + 1
+
+    return "Don't exist !!"
+
 
 
